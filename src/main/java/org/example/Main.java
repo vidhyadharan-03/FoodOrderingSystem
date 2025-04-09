@@ -39,6 +39,7 @@ public class Main {
         String input;
         int flag=0;
         switch (choice) {
+
             case 1:
                 do {
                     cartInput(storeFoodItems, cart, choice);
@@ -65,8 +66,10 @@ public class Main {
                         System.out.println();
                         System.out.print("You can still order More : ");
                         inputForOrder=scan.next();
+                        flag=1;
                     }
                     while(inputForOrder.equalsIgnoreCase("yes"));
+                    ord.printBill();
 
 
 

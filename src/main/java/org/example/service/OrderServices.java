@@ -14,6 +14,7 @@ public class OrderServices extends Orders implements OrderService
         this.finalOrder= new HashMap<>();
     }
 
+    // This is for DirectOrder form food list....
 public void takeOrder(StoreFoodItems storeFoodItems , int foodId, String foodName, int quan)
 {
     for(FoodItem fis : storeFoodItems.items)
@@ -28,9 +29,11 @@ public void takeOrder(StoreFoodItems storeFoodItems , int foodId, String foodNam
     }
 }
 
+// This is for taking order from Cart interface.....
 public void takeOrder(FoodItem fi,int quan)
     {
         finalOrder.put(fi,quan);
+
     }
 
 
@@ -52,4 +55,5 @@ public void takeOrder(FoodItem fi,int quan)
         }
         System.out.println("Total Price : "+totalPrice);
     }
+    //public void printBill()
 }
