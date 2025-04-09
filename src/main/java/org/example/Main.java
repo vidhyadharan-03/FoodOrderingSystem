@@ -11,7 +11,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("                                         Welcome to Niggy Ordering App                              ");
         StoreFoodItems storeFoodItems = new StoreFoodItems();
-        CartService cart = new CartService();
+        OrderServices ord=new OrderServices();
+        CartService cart = new CartService(ord);
 
         // FoodItem fooditem = new FoodItem();
         Scanner scan = new Scanner(System.in);
@@ -54,7 +55,7 @@ public class Main {
                 if(inputOrder.equalsIgnoreCase("yes"))
                 {
 
-                    OrderServices ord=new OrderServices();
+
                     String inputForOrder;
                     do {
                         System.out.print("Enter the food Id : ");
@@ -62,7 +63,7 @@ public class Main {
                         System.out.println();
                         System.out.print("Enter the quanity : ");
                         int quantity = scan.nextInt();
-                        cart.placeOrder(foodId, quantity, ord);
+                        cart.placeOrder(foodId, quantity);
                         System.out.println();
                         System.out.print("You can still order More : ");
                         inputForOrder=scan.next();

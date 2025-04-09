@@ -2,15 +2,20 @@ package org.example.service;
 
 import org.example.Model.Cart;
 import org.example.Model.FoodItem;
+import org.example.Model.OrderService;
 
 import java.util.ArrayList;
 
 public class CartService extends Cart implements org.example.Model.CartService {
 
+    private final OrderServices orderServices;
 
 
-    public CartService()
+
+
+    public CartService(OrderServices orderService)
     {
+        this.orderServices = orderService;
         this.cartList = new ArrayList<>();
     }
     public void addToCart(FoodItem wish)
@@ -44,11 +49,11 @@ public class CartService extends Cart implements org.example.Model.CartService {
             }
         }
     }
-    public void placeOrder( int foodId,int quan,OrderServices ord)
+    public void placeOrder( int foodId,int quan)
     {
             for (FoodItem fi : cartList) {
                 if (fi.getFoodId() == foodId) {
-                    ord.takeOrder(fi, quan);
+                    orderServices.takeOrder(fi, quan);
                 }
             }
 
